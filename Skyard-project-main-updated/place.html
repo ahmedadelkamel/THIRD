@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تفاصيل المكان | التجمع الثالث</title>
+  <meta name="description" content="صور ومعلومات تفصيلية عن أهم الأماكن والمعالم في التجمع الثالث بالقاهرة الجديدة" />
+  <meta property="og:title" content="تفاصيل المكان | التجمع الثالث" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="enhance.css" />
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="القائمة الرئيسية">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-logo">
+        <span class="logo-main">التجمع الثالث</span>
+        <span class="logo-sub">New Cairo</span>
+      </a>
+      <ul class="navbar-nav" role="menubar">
+        <li role="none"><a href="index.html" class="nav-link" role="menuitem">الرئيسية</a></li>
+        <li role="none"><a href="about.html" class="nav-link" role="menuitem">عن التجمع الثالث</a></li>
+        <li role="none"><a href="services.html" class="nav-link" role="menuitem">الخدمات</a></li>
+        <li role="none"><a href="places.html" class="nav-link active" role="menuitem">الأماكن</a></li>
+        <li role="none"><a href="contact.html" class="nav-link" role="menuitem">تواصل معنا</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary navbar-cta">تواصل معنا</a>
+      <button class="hamburger" aria-label="فتح القائمة" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" role="dialog" aria-modal="true">
+  <button class="mobile-close" aria-label="إغلاق">&times;</button>
+  <a href="index.html" class="nav-link">الرئيسية</a>
+  <a href="about.html" class="nav-link">عن التجمع الثالث</a>
+  <a href="services.html" class="nav-link">الخدمات</a>
+  <a href="places.html" class="nav-link active">الأماكن</a>
+  <a href="contact.html" class="nav-link">تواصل معنا</a>
+</div>
+
+<!-- محتوى صفحة التفاصيل يُبنى من places-data.js -->
+<main id="placeDetail"></main>
+
+<noscript>
+  <div class="container">
+    <p class="places-noscript">
+      لعرض تفاصيل الأماكن وصورها يجب تشغيل JavaScript في المتصفح.
+      يمكنك العودة إلى <a href="places.html">صفحة الأماكن</a>.
+    </p>
+  </div>
+</noscript>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-main">التجمع الثالث</span>
+        <span class="logo-sub">New Cairo, Egypt</span>
+        <p>دليلك الشامل للتعرف على واحدة من أرقى مناطق القاهرة الجديدة.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/ahmedadelkamel" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="tel:01050407544" aria-label="اتصل بنا"><i class="fas fa-phone" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>الصفحات</h4>
+        <nav class="footer-links">
+          <a href="index.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> الرئيسية</a>
+          <a href="about.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> عن التجمع</a>
+          <a href="services.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> الخدمات</a>
+          <a href="places.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> الأماكن</a>
+          <a href="contact.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> تواصل معنا</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>الخدمات</h4>
+        <nav class="footer-links">
+          <a href="services.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> التعليم</a>
+          <a href="services.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> الصحة</a>
+          <a href="services.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> التسوق</a>
+          <a href="services.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> المواصلات</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>تواصل</h4>
+        <div class="footer-contact-item"><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:01050407544">01050407544</a></div>
+        <div class="footer-contact-item"><i class="fab fa-linkedin" aria-hidden="true"></i><a href="https://www.linkedin.com/in/ahmedadelkamel" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+        <div class="footer-contact-item"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>التجمع الثالث، القاهرة الجديدة</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 التجمع الثالث. جميع الحقوق محفوظة.</p>
+      <div class="footer-bottom-links"><a href="index.html">الرئيسية</a><a href="contact.html">تواصل</a></div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="العودة للأعلى"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+
+<script src="places-data.js"></script>
+<script src="places.js"></script>
+<script src="script.js"></script>
+<script src="enhance.js"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>خدمات التجمع الثالث</title>
+  <meta name="description" content="دليل شامل بخدمات التجمع الثالث من تعليم وصحة وتسوق ومواصلات" />
+  <meta property="og:title" content="خدمات التجمع الثالث" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="services.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="enhance.css" />
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="القائمة الرئيسية">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-logo">
+        <span class="logo-main">التجمع الثالث</span>
+        <span class="logo-sub">New Cairo</span>
+      </a>
+      <ul class="navbar-nav" role="menubar">
+        <li role="none"><a href="index.html" class="nav-link" role="menuitem">الرئيسية</a></li>
+        <li role="none"><a href="about.html" class="nav-link" role="menuitem">عن التجمع الثالث</a></li>
+        <li role="none"><a href="services.html" class="nav-link active" role="menuitem">الخدمات</a></li>
+        <li role="none"><a href="places.html" class="nav-link" role="menuitem">الأماكن</a></li>
+        <li role="none"><a href="contact.html" class="nav-link" role="menuitem">تواصل معنا</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary navbar-cta">تواصل معنا</a>
+      <button class="hamburger" aria-label="فتح القائمة" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" role="dialog" aria-modal="true">
+  <button class="mobile-close" aria-label="إغلاق">&times;</button>
+  <a href="index.html" class="nav-link">الرئيسية</a>
+  <a href="about.html" class="nav-link">عن التجمع الثالث</a>
+  <a href="services.html" class="nav-link active">الخدمات</a>
+  <a href="places.html" class="nav-link">الأماكن</a>
+  <a href="contact.html" class="nav-link">تواصل معنا</a>
+</div>
+
+<section class="page-hero" aria-labelledby="services-hero-heading">
+  <div class="container">
+    <div class="page-hero-content">
+      <nav class="breadcrumb" aria-label="مسار التنقل">
+        <a href="index.html">الرئيسية</a>
+        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        <span>الخدمات</span>
+      </nav>
+      <h1 id="services-hero-heading">خدمات التجمع الثالث</h1>
+      <p>دليل شامل بجميع الخدمات المتاحة في التجمع الثالث</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" aria-labelledby="services-main-heading">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">دليل الخدمات</span>
+      <h2 class="section-title" id="services-main-heading">كل ما تحتاجه في مكان واحد</h2>
+      <p class="section-subtitle">التجمع الثالث يضم طيفاً واسعاً من الخدمات المتكاملة</p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="services-filter" role="group" aria-label="تصفية الخدمات">
+      <button class="filter-btn active" data-filter="all">الكل</button>
+      <button class="filter-btn" data-filter="education">التعليم</button>
+      <button class="filter-btn" data-filter="health">الصحة</button>
+      <button class="filter-btn" data-filter="shopping">التسوق</button>
+      <button class="filter-btn" data-filter="food">المطاعم</button>
+      <button class="filter-btn" data-filter="transport">المواصلات</button>
+      <button class="filter-btn" data-filter="government">حكومي</button>
+    </div>
+
+    <div class="services-full-grid">
+
+      <!-- Education -->
+      <article class="service-full-card reveal" data-category="education">
+        <div class="service-icon" aria-hidden="true"><i class="fas fa-graduation-cap"></i></div>
+        <h3>التعليم</h3>
+        <p>يضم التجمع الثالث عدداً كبيراً من المدارس الحكومية والخاصة والمعاهد التعليمية التي تخدم جميع المراحل الدراسية من رياض الأطفال حتى التعليم الجامعي. تشرف عليها الإدارة التعليمية بالقاهرة الجديدة.</p>
+        <div class="service-tags">
+          <span class="service-tag">مدارس حكومية</span>
+          <span class="service-tag">مدارس خاصة</span>
+          <span class="service-tag">معاهد تعليمية</span>
+          <span class="service-tag">إدارة تعليمية</span>
+        </div>
+      </article>
+
+      <!-- Health -->
+      <article class="service-full-card reveal reveal-delay-1" data-category="health">
+        <div class="service-icon" aria-hidden="true"><i class="fas fa-heartbeat"></i></div>
+        <h3>الصحة والرعاية الطبية</h3>
+        <p>تتوفر في التجمع الثالث خدمات صحية متكاملة تشمل مستشفيات وعيادات طبية متخصصة وصيدليات منتشرة في أرجاء المنطقة، مما يضمن سهولة الحصول على الرعاية الصحية لجميع السكان.</p>
+        <div class="service-tags">
+          <span class="service-tag">مستشفيات</span>
+          <span class="service-tag">عيادات طبية</span>
+          <span class="service-tag">صيدليات</span>
+          <span class="service-tag">طوارئ</span>
+        </div>
+      </article>
+
+      <!-- Shopping -->
+      <article class="service-full-card reveal reveal-delay-2" data-category="shopping">
+        <div class="service-icon" aria-hidden="true"><i class="fas fa-shopping-bag"></i></div>
+        <h3>التسوق والتجارة</h3>
+        <p>يتميز التجمع الثالث بتوفر مراكز تجارية ومولات ومحلات متنوعة تلبي جميع احتياجات التسوق اليومية والموسمية، من المواد الغذائية حتى الملابس والإلكترونيات.</p>
+        <div class="service-tags">
+          <span class="service-tag">مولات</span>
+          <span class="service-tag">سوبر ماركت</span>
+          <span class="service-tag">محلات متخصصة</span>
+          <span class="service-tag">مراكز تجارية</span>
+        </div>
+      </article>
+
+      <!-- Food -->
+      <article class="service-full-card reveal" data-category="food">
+        <div class="service-icon" aria-hidden="true"><i class="fas fa-utensils"></i></div>
+        <h3>المطاعم والكافيهات</h3>
+        <p>تزخر منطقة التجمع الثالث بتشكيلة واسعة من المطاعم والكافيهات التي تقدم أصنافاً متنوعة من المطبخ المصري والعربي والعالمي، لتلبي جميع الأذواق.</p>
+        <div class="service-tags">
+          <span class="service-tag">مطبخ مصري</span>
+          <span class="service-tag">مطبخ عالمي</span>
+          <span class="service-tag">كافيهات</span>
+          <span class="service-tag">وجبات سريعة</span>
+        </div>
+      </article>
+
+      <!-- Transport -->
+      <article class="service-full-card reveal reveal-delay-2" data-category="transport">
+        <div class="service-icon" aria-hidden="true"><i class="fas fa-car"></i></div>
+        <h3>المواصلات والطرق</h3>
+        <p>يتميز التجمع الثالث بشبكة طرق متطورة تربطه بكافة محاور القاهرة الجديدة وطريق الدائري ومحور التسعين، مع توفر وحدة تراخيص المرور لخدمة السكان.</p>
+        <div class="service-tags">
+          <span class="service-tag">طريق الدائري</span>
+          <span class="service-tag">محور التسعين</span>
+          <span class="service-tag">تراخيص مرور</span>
+          <span class="service-tag">خدمات نقل</span>
+        </div>
+      </article>
+
+      <!-- Government -->
+      <article class="service-full-card reveal" data-category="government">
+        <div class="service-icon" aria-hidden="true"><i class="fas fa-landmark"></i></div>
+        <h3>المرافق الحكومية</h3>
+        <p>تتوفر في التجمع الثالث عدة مرافق حكومية تخدم السكان، منها وحدة تراخيص المرور والإدارة التعليمية وغيرها من الجهات الخدمية.</p>
+        <div class="service-tags">
+          <span class="service-tag">تراخيص مرور</span>
+          <span class="service-tag">إدارة تعليمية</span>
+          <span class="service-tag">خدمات حكومية</span>
+        </div>
+      </article>
+
+      <!-- Community -->
+      <article class="service-full-card reveal reveal-delay-1" data-category="government">
+        <div class="service-icon" aria-hidden="true"><i class="fas fa-hands-helping"></i></div>
+        <h3>المنظمات المجتمعية</h3>
+        <p>تنشط في التجمع الثالث منظمات مجتمعية وخيرية فاعلة تعمل على دعم المجتمع وتقديم المساعدة للمحتاجين، منها مؤسسة أهل مصر وبنك الطعام المصري.</p>
+        <div class="service-tags">
+          <span class="service-tag">منظمات خيرية</span>
+          <span class="service-tag">دعم مجتمعي</span>
+          <span class="service-tag">تطوع</span>
+        </div>
+      </article>
+
+      <!-- Sports & Recreation -->
+      <article class="service-full-card reveal reveal-delay-2" data-category="shopping">
+        <div class="service-icon" aria-hidden="true"><i class="fas fa-futbol"></i></div>
+        <h3>الرياضة والترفيه</h3>
+        <p>تتوفر في التجمع الثالث نوادي رياضية ومراكز ترفيهية متكاملة تضم ملاعب رياضية وحمامات سباحة ومرافق اجتماعية متنوعة.</p>
+        <div class="service-tags">
+          <span class="service-tag">نوادي رياضية</span>
+          <span class="service-tag">ملاعب</span>
+          <span class="service-tag">حمامات سباحة</span>
+          <span class="service-tag">جيم</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-section section-padding" aria-labelledby="services-cta-heading">
+  <div class="container">
+    <div class="cta-content">
+      <span class="section-label" style="justify-content:center;">تواصل معنا</span>
+      <h2 class="section-title" id="services-cta-heading">هل تحتاج مزيداً من المعلومات؟;</h2>
+      <p class="section-subtitle">تواصل معنا وسنساعدك في الحصول على كل ما تحتاجه</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-primary"><i class="fas fa-phone" aria-hidden="true"></i> تواصل معنا</a>
+        <a href="places.html" class="btn btn-outline"><i class="fas fa-map" aria-hidden="true"></i> استكشف الأماكن</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-main">التجمع الثالث</span>
+        <span class="logo-sub">New Cairo, Egypt</span>
+        <p>دليلك الشامل للتعرف على واحدة من أرقى مناطق القاهرة الجديدة.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/ahmedadelkamel" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="tel:01050407544" aria-label="اتصل بنا"><i class="fas fa-phone" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>الصفحات</h4>
+        <nav class="footer-links">
+          <a href="index.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> الرئيسية</a>
+          <a href="about.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> عن التجمع</a>
+          <a href="services.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> الخدمات</a>
+          <a href="places.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> الأماكن</a>
+          <a href="contact.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> تواصل معنا</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>الخدمات</h4>
+        <nav class="footer-links">
+          <a href="services.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> التعليم</a>
+          <a href="services.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> الصحة</a>
+          <a href="services.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> التسوق</a>
+          <a href="services.html"><i class="fas fa-chevron-left" aria-hidden="true"></i> المواصلات</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>تواصل</h4>
+        <div class="footer-contact-item"><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:01050407544">01050407544</a></div>
+        <div class="footer-contact-item"><i class="fab fa-linkedin" aria-hidden="true"></i><a href="https://www.linkedin.com/in/ahmedadelkamel" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+        <div class="footer-contact-item"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>التجمع الثالث، القاهرة الجديدة</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 التجمع الثالث. جميع الحقوق محفوظة.</p>
+      <div class="footer-bottom-links"><a href="index.html">الرئيسية</a><a href="contact.html">تواصل</a></div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="العودة للأعلى"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+<script src="script.js"></script>
+<script src="enhance.js"></script>
+</body>
+</html>

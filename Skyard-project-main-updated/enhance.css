@@ -1,0 +1,733 @@
+/* ============================================
+   التجمع الثالث - Premium Layer
+   طبقة إضافية فوق style.css
+   لا تغير الهوية ولا الترتيب الأصلي للموقع
+   ============================================ */
+
+:root {
+  --fx-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --fx-glow: rgba(201, 168, 76, 0.32);
+  --fx-glass: rgba(255, 255, 255, 0.72);
+  --fx-glass-dark: rgba(13, 27, 42, 0.55);
+}
+
+/* ============================================
+   1. شريط تقدم القراءة
+   ============================================ */
+.fx-progress {
+  position: fixed;
+  top: 0; right: 0; left: 0;
+  height: 3px;
+  z-index: 1500;
+  pointer-events: none;
+}
+
+.fx-progress span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold));
+  box-shadow: 0 0 14px var(--fx-glow);
+}
+
+/* ============================================
+   2. تأثير 3D على الكروت
+   ============================================ */
+.fx-tilt {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s var(--fx-ease), box-shadow 0.6s var(--fx-ease);
+}
+
+.fx-tilt.is-tilting {
+  transition: transform 0.12s linear, box-shadow 0.4s var(--fx-ease);
+  transform:
+    perspective(1000px)
+    rotateX(var(--fx-rx, 0deg))
+    rotateY(var(--fx-ry, 0deg))
+    translate3d(0, -6px, 0)
+    scale(1.012);
+  box-shadow: 0 26px 60px rgba(13, 27, 42, 0.18), 0 10px 30px rgba(201, 168, 76, 0.14);
+  z-index: 2;
+}
+
+/* لمعة ضوء تتبع الماوس */
+.fx-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 4;
+  transition: opacity 0.45s ease;
+  background: radial-gradient(
+    280px circle at var(--fx-mx, 50%) var(--fx-my, 50%),
+    rgba(201, 168, 76, 0.20),
+    rgba(201, 168, 76, 0) 62%
+  );
+}
+
+.fx-tilt.is-tilting .fx-sheen { opacity: 1; }
+
+/* الكروت التي أصبحت روابط */
+a.place-card,
+a.place-full-card {
+  display: block;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* ============================================
+   3. أزرار متقدمة (لمعة مارة)
+   ============================================ */
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -140%;
+  width: 60%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-18deg);
+  transition: right 0.75s var(--fx-ease);
+}
+
+.btn:hover::before { right: 140%; }
+
+/* ============================================
+   4. أجواء الهيرو (أضواء طافية + نقش هندسي)
+   ============================================ */
+.fx-orbs {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.fx-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.30;
+  will-change: transform;
+}
+
+.fx-orb-1 {
+  width: 420px; height: 420px;
+  top: -8%; right: -6%;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.55), transparent 70%);
+  animation: fxFloatA 22s ease-in-out infinite;
+}
+
+.fx-orb-2 {
+  width: 340px; height: 340px;
+  bottom: -10%; left: -4%;
+  background: radial-gradient(circle, rgba(226, 196, 122, 0.42), transparent 70%);
+  animation: fxFloatB 27s ease-in-out infinite;
+}
+
+.fx-orb-3 {
+  width: 260px; height: 260px;
+  top: 40%; left: 32%;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.30), transparent 70%);
+  animation: fxFloatA 33s ease-in-out infinite reverse;
+}
+
+@keyframes fxFloatA {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(-40px, 40px, 0) scale(1.12); }
+}
+
+@keyframes fxFloatB {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(48px, -34px, 0) scale(1.08); }
+}
+
+/* نقش هندسي إسلامي خفيف جداً */
+.fx-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(45deg, rgba(201, 168, 76, 0.30) 25%, transparent 25%, transparent 75%, rgba(201, 168, 76, 0.30) 75%),
+    linear-gradient(45deg, rgba(201, 168, 76, 0.30) 25%, transparent 25%, transparent 75%, rgba(201, 168, 76, 0.30) 75%);
+  background-size: 54px 54px;
+  background-position: 0 0, 27px 27px;
+  animation: fxPatternDrift 60s linear infinite;
+  mask-image: radial-gradient(circle at 70% 30%, #000 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at 70% 30%, #000 0%, transparent 70%);
+}
+
+@keyframes fxPatternDrift {
+  from { background-position: 0 0, 27px 27px; }
+  to   { background-position: 108px 108px, 135px 135px; }
+}
+
+/* طبقة عمق للصورة الخلفية */
+.hero-img.fx-parallax,
+.detail-hero-img.fx-parallax {
+  will-change: transform;
+  transform: translate3d(0, 0, 0) scale(1.08);
+}
+
+/* دخول سينمائي لمحتوى الهيرو */
+.fx-enter {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+  animation: fxEnter 1.1s var(--fx-ease) forwards;
+}
+
+.fx-enter-1 { animation-delay: 0.10s; }
+.fx-enter-2 { animation-delay: 0.22s; }
+.fx-enter-3 { animation-delay: 0.34s; }
+.fx-enter-4 { animation-delay: 0.46s; }
+
+@keyframes fxEnter {
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+/* ============================================
+   5. لمسات زجاجية
+   ============================================ */
+.glass-card {
+  background: var(--fx-glass);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 18px 50px rgba(13, 27, 42, 0.12);
+}
+
+.navbar.scrolled {
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+/* زر العودة للأعلى */
+.back-to-top {
+  transition: transform 0.4s var(--fx-ease), box-shadow 0.4s var(--fx-ease), opacity 0.3s ease;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px) scale(1.06);
+  box-shadow: 0 14px 34px rgba(201, 168, 76, 0.38);
+}
+
+/* ============================================
+   6. إضافات كروت الأماكن
+   ============================================ */
+.place-photo-count {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--white);
+  background: rgba(13, 27, 42, 0.62);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 3;
+}
+
+.place-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--navy);
+  transition: gap 0.3s var(--fx-ease), color 0.3s ease;
+}
+
+.place-full-card:hover .place-more,
+.place-card:hover .place-more {
+  color: var(--gold-dark);
+  gap: 14px;
+}
+
+.places-block { margin-bottom: 48px; }
+.places-block:last-child { margin-bottom: 0; }
+.places-block-header { margin-bottom: 40px; }
+
+.places-filter { margin-bottom: 56px; }
+
+/* ============================================
+   7. صفحة تفاصيل المكان
+   ============================================ */
+.detail-hero {
+  position: relative;
+  min-height: 72vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+.detail-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.detail-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(13, 27, 42, 0.72) 0%,
+    rgba(13, 27, 42, 0.62) 40%,
+    rgba(13, 27, 42, 0.94) 100%
+  );
+}
+
+.detail-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 150px 0 70px;
+  max-width: 760px;
+}
+
+.detail-hero-content .breadcrumb { margin-bottom: 22px; }
+
+.detail-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 18px;
+  margin-bottom: 20px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--gold);
+  background: rgba(201, 168, 76, 0.14);
+  border: 1px solid rgba(201, 168, 76, 0.42);
+}
+
+.detail-hero-content h1 {
+  font-size: clamp(1.9rem, 4.6vw, 3.2rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.detail-hero-content > p {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.9;
+  max-width: 620px;
+  margin-bottom: 26px;
+}
+
+.detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.detail-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.detail-meta span i { color: var(--gold); }
+
+/* تقسيم المحتوى */
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1.85fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.detail-text p {
+  font-size: 1rem;
+  color: var(--text-mid);
+  line-height: 2;
+  margin-bottom: 18px;
+}
+
+.detail-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 42px;
+}
+
+.detail-highlight {
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-md);
+  padding: 26px 22px;
+  box-shadow: var(--shadow-sm);
+}
+
+.detail-highlight-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 1.05rem;
+  color: var(--gold);
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  transition: var(--transition);
+}
+
+.detail-highlight:hover .detail-highlight-icon {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--navy);
+}
+
+.detail-highlight h4 {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.detail-highlight p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* بطاقة المعلومات الجانبية */
+.detail-side { position: sticky; top: 110px; }
+
+.detail-info-card {
+  border-radius: var(--radius-lg);
+  padding: 30px 26px;
+}
+
+.detail-info-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-info-card h3 i { color: var(--gold); }
+
+.detail-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+}
+
+.detail-info-row span {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.detail-info-row strong {
+  font-size: 0.85rem;
+  color: var(--navy);
+  font-weight: 700;
+  text-align: left;
+  line-height: 1.6;
+}
+
+/* خريطة Google المدمجة (مصدر مواعيد العمل) */
+.detail-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold-dark) !important;
+}
+
+.detail-map-embed {
+  position: relative;
+  margin-top: 22px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  background: var(--off-white);
+}
+
+.detail-map-embed iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.detail-map-btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.detail-note {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-top: 16px;
+  text-align: center;
+}
+
+/* ============================================
+   8. معرض الصور
+   ============================================ */
+.detail-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.gallery-item {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  aspect-ratio: 4 / 3;
+  background: var(--navy);
+  box-shadow: var(--shadow-sm);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--fx-ease), filter 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.09);
+  filter: saturate(115%) brightness(1.04);
+}
+
+.gallery-zoom {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  opacity: 0;
+  color: var(--navy);
+  transition: opacity 0.4s ease;
+  background: rgba(13, 27, 42, 0.28);
+}
+
+.gallery-zoom i {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 10px 26px rgba(201, 168, 76, 0.42);
+  transform: scale(0.8);
+  transition: transform 0.4s var(--fx-ease);
+}
+
+.gallery-item:hover .gallery-zoom { opacity: 1; }
+.gallery-item:hover .gallery-zoom i { transform: scale(1); }
+
+/* ============================================
+   9. عارض الصور (Lightbox)
+   ============================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 28px;
+  opacity: 0;
+  pointer-events: none;
+  background: rgba(8, 16, 26, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: opacity 0.35s ease;
+}
+
+.lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox-figure {
+  max-width: min(1080px, 90vw);
+  text-align: center;
+  transform: scale(0.94);
+  transition: transform 0.45s var(--fx-ease);
+}
+
+.lightbox.open .lightbox-figure { transform: scale(1); }
+
+.lightbox-figure img {
+  max-height: 78vh;
+  width: auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-figure figcaption {
+  margin-top: 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.lightbox-nav,
+.lightbox-close {
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--white);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.lightbox-nav {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  width: 46px;
+  height: 46px;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.lightbox-nav:hover,
+.lightbox-close:hover {
+  background: var(--gold);
+  color: var(--navy);
+  transform: scale(1.08);
+}
+
+.lightbox.is-single .lightbox-nav { display: none; }
+
+/* ============================================
+   10. حالة عدم وجود المكان
+   ============================================ */
+.place-notfound {
+  text-align: center;
+  padding: 90px 20px;
+}
+
+.place-notfound i {
+  font-size: 3rem;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.place-notfound h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.place-notfound p {
+  color: var(--text-light);
+  margin-bottom: 28px;
+}
+
+.places-noscript {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-mid);
+}
+
+/* ============================================
+   11. استجابة الشاشات
+   ============================================ */
+@media (max-width: 992px) {
+  .detail-layout { grid-template-columns: 1fr; gap: 44px; }
+  .detail-side { position: static; }
+  .detail-gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .detail-hero { min-height: 60vh; }
+  .detail-hero-content { padding: 120px 0 50px; }
+  .detail-highlights { grid-template-columns: 1fr; }
+  .detail-gallery { grid-template-columns: 1fr; gap: 16px; }
+  .lightbox { padding: 14px; gap: 8px; }
+  .lightbox-nav { width: 42px; height: 42px; }
+}
+
+/* إلغاء الحركة لمن يفضلها أو للأجهزة اللمسية */
+@media (hover: none) {
+  .fx-tilt.is-tilting { transform: none; }
+  .fx-sheen { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-orb,
+  .fx-pattern { animation: none; }
+
+  .fx-enter {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .fx-tilt,
+  .fx-tilt.is-tilting {
+    transform: none;
+    transition: none;
+  }
+
+  .btn::before { display: none; }
+}
